@@ -7,8 +7,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class WebDriverFactory {
 
-    private static WebDriver driver;
-
 
     public static WebDriver getCorrectWeb(String webName) {
 
@@ -17,11 +15,7 @@ public class WebDriverFactory {
             case "firefox": return new FirefoxDriver();
             case "edge": return new EdgeDriver();
             default:
-                System.out.println(webName + "This is not correct driver");
+                throw new RuntimeException(webName + " This is not correct browser");
         }
-
-        return driver;
     }
-
-
 }

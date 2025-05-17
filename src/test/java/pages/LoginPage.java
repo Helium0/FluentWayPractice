@@ -9,7 +9,6 @@ public class LoginPage {
 
     private WebDriver driver;
 
-
     @FindBy(id = "UserName")
     private WebElement usernameInput;
 

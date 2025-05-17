@@ -22,8 +22,8 @@ public class HomePage {
 
 
     public HomePage(WebDriver driver) {
-        this.driver = driver;
         PageFactory.initElements(driver, this);
+        this.driver = driver;
     }
 
 

@@ -1,8 +1,9 @@
 package tests;
 
+import factory.DriverManagement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
@@ -10,22 +11,24 @@ import factory.BasePage;
 
 public class LoginTests extends BasePage {
 
-    private final By LOGIN_TEXT = By.xpath("//div[@class='container body-content']//h2");
 
-    private final By WEBSITE_LOGO = By.xpath("//div[@class='col-md-5']//img");
-
-
-
+    private HomePage homePage;
+    private LoginPage loginPage;
+    private final By USER_NAME_ERROR = By.xpath("//span[@for='UserName']");
+    private final By USER_PASSWORD_ERROR = By.xpath("//span[@for='Password']");
 
 
     @Test
-    public void loginUserWithoutCredentials() {
-        HomePage homePage = new HomePage(driver);
+    public void userCantLoginWithoutCredentials() {
+        WebDriver driver = DriverManagement.getDriver();
+        homePage = new HomePage(driver);
+        loginPage = new LoginPage(driver);
         homePage.clickLogin();
+        loginPage.loginUserToAccount("","");
 
+        Assert.assertEquals(driver.findElement(USER_NAME_ERROR).getText(), "The UserName field is required.");
+        Assert.assertEquals(driver.findElement(USER_PASSWORD_ERROR).getText(), "The Password field is required.");
 
-        Assert.assertEquals(driver.findElement(LOGIN_TEXT).getText(), "Login.", "Login text is different");
-        Assert.assertTrue(driver.findElement(WEBSITE_LOGO).isDisplayed(), "Logo is not displayed");
     }
 
 }

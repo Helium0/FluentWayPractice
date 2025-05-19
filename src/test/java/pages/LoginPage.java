@@ -18,6 +18,9 @@ public class LoginPage {
     @FindBy(id = "loginIn")
     private WebElement loginButton;
 
+    @FindBy(id = "RememberMe")
+    private WebElement rememberMeCheckbox;
+
     @FindBy(partialLinkText = "Register as a")
     private WebElement registerNewUserLink;
 
@@ -26,11 +29,18 @@ public class LoginPage {
         PageFactory.initElements(driver, this);
     }
 
+    public WebElement getRememberMeCheckbox() {
+        return rememberMeCheckbox;
+    }
 
     public void loginUserToAccount(String userName, String userPassword) {
         usernameInput.sendKeys(userName);
         passwordInput.sendKeys(userPassword);
         loginButton.click();
+    }
+
+    public void clickOnRememberMeCheckbox() {
+        rememberMeCheckbox.click();
     }
 
     public RegisterUserPage registerNewUser() {

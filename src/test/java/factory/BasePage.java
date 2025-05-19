@@ -13,7 +13,6 @@ public class BasePage {
         DriverManagement.setDriver(driver);
         driver.get("http://eaapp.somee.com/");
         driver.manage().window().fullscreen();
-
     }
 
 

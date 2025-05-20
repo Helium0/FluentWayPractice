@@ -1,6 +1,7 @@
 package factory;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -13,6 +14,12 @@ public class BasePage {
         DriverManagement.setDriver(driver);
         driver.get("http://eaapp.somee.com/");
         driver.manage().window().fullscreen();
+    }
+
+    @AfterMethod
+    public void backToHomePage() {
+        WebDriver driver = DriverManagement.getDriver();
+        driver.get("http://eaapp.somee.com/");
     }
 
 

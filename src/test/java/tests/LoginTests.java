@@ -5,14 +5,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.HomePage;
+import pages.NavigationBarPage;
 import pages.LoginPage;
 import factory.BasePage;
 
 public class LoginTests extends BasePage {
 
 
-    private HomePage homePage;
+    private NavigationBarPage navigationBarPage;
     private LoginPage loginPage;
     private WebDriver driver;
     private final By USER_NAME_ERROR = By.xpath("//span[@for='UserName']");
@@ -23,9 +23,9 @@ public class LoginTests extends BasePage {
     @Test
     public void userCantLoginWithoutCredentials() {
         driver = DriverManagement.getDriver();
-        homePage = new HomePage(driver);
+        navigationBarPage = new NavigationBarPage(driver);
         loginPage = new LoginPage(driver);
-        homePage.clickLogin();
+        navigationBarPage.clickLogin();
         loginPage.loginUserToAccount("","");
 
         Assert.assertEquals(driver.findElement(USER_NAME_ERROR).getText(), "The UserName field is required.");
@@ -35,9 +35,9 @@ public class LoginTests extends BasePage {
     @Test
     public void userCantLoginWithIncorrectCredentials() {
         driver = DriverManagement.getDriver();
-        homePage = new HomePage(driver);
+        navigationBarPage = new NavigationBarPage(driver);
         loginPage = new LoginPage(driver);
-        homePage.clickLogin();
+        navigationBarPage.clickLogin();
         loginPage.loginUserToAccount("Patryk","Tester666");
 
         Assert.assertEquals(driver.findElement(INVALID_LOGIN_ERROR).getText(), "Invalid login attempt.");
@@ -46,9 +46,9 @@ public class LoginTests extends BasePage {
     @Test
     public void userCantLoginWithoutPassword() {
         driver = DriverManagement.getDriver();
-        homePage = new HomePage(driver);
+        navigationBarPage = new NavigationBarPage(driver);
         loginPage = new LoginPage(driver);
-        homePage.clickLogin();
+        navigationBarPage.clickLogin();
         loginPage.loginUserToAccount("Patryk","");
 
         Assert.assertEquals(driver.findElement(USER_PASSWORD_ERROR).getText(), "The Password field is required.");
@@ -57,9 +57,9 @@ public class LoginTests extends BasePage {
     @Test
     public void userCantLoginWithoutUserName() {
         driver = DriverManagement.getDriver();
-        homePage = new HomePage(driver);
+        navigationBarPage = new NavigationBarPage(driver);
         loginPage = new LoginPage(driver);
-        homePage.clickLogin();
+        navigationBarPage.clickLogin();
         loginPage.loginUserToAccount("","Tester666");
 
         Assert.assertEquals(driver.findElement(USER_NAME_ERROR).getText(), "The UserName field is required.");
@@ -68,9 +68,9 @@ public class LoginTests extends BasePage {
     @Test
     public void userCanClickOnRememberCheckbox() {
         driver = DriverManagement.getDriver();
-        homePage = new HomePage(driver);
+        navigationBarPage = new NavigationBarPage(driver);
         loginPage = new LoginPage(driver);
-        homePage.clickLogin();
+        navigationBarPage.clickLogin();
         loginPage.clickOnRememberMeCheckbox();
 
         Assert.assertTrue(loginPage.getRememberMeCheckbox().isSelected(), "Checkbox is not selected");

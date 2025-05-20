@@ -5,41 +5,40 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
 
+public class HomePage  {
 
     private WebDriver driver;
 
-    @FindBy(id = "loginLink")
-    private WebElement loginFromNavigationBarButton;
+    @FindBy(xpath = "//a[contains(@class,'btn btn-default') and text()='Learn more »']")
+    private WebElement learnMoreButton;
 
-    @FindBy(id = "registerLink")
-    private WebElement registerFromNavigationBarButton;
+    @FindBy(xpath = "//a[contains(@class,'btn btn-primary btn-lg') and text()='Udemy']")
+    private WebElement udemyButton;
 
-    @FindBy(xpath = "//a[text()='Employee List']")
-    private WebElement employeeListNavigationBarutton;
-
+    @FindBy(xpath = "//a[contains(@class,'btn btn-primary btn-lg') and text()='YouTube']")
+    private WebElement youtubeButton;
 
 
     public HomePage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
 
-    public LoginPage clickLogin() {
-        loginFromNavigationBarButton.click();
-        return new LoginPage(driver);
+    public void clickOnLearnMoreButton() {
+        learnMoreButton.click();
     }
 
-    public RegisterUserPage clickRegister() {
-        registerFromNavigationBarButton.click();
-        return new RegisterUserPage(driver);
+    public void clickOnUdemyButton() {
+        udemyButton.click();
     }
 
-    public EmployeeListPage clickEmployeeList() {
-        employeeListNavigationBarutton.click();
-        return new EmployeeListPage(driver);
+    public void clickOnYoutubeButton() {
+        youtubeButton.click();
     }
+
+
+
 
 }

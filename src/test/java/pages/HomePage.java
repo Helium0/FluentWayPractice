@@ -10,6 +10,9 @@ public class HomePage  {
 
     private WebDriver driver;
 
+    @FindBy(xpath = "//a[contains(@class,'btn btn-primary btn-lg') and text()='Visit now »']")
+    private WebElement visitNowButton;
+
     @FindBy(xpath = "//a[contains(@class,'btn btn-default') and text()='Learn more »']")
     private WebElement learnMoreButton;
 
@@ -19,12 +22,18 @@ public class HomePage  {
     @FindBy(xpath = "//a[contains(@class,'btn btn-primary btn-lg') and text()='YouTube']")
     private WebElement youtubeButton;
 
+    @FindBy(xpath = "//a[contains(@class,'btn btn-default') and text()='Get Source code »']")
+    private WebElement sourceCodeButton;
+
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
+    public void clickOnVisitNowButton() {
+        visitNowButton.click();
+    }
 
     public void clickOnLearnMoreButton() {
         learnMoreButton.click();
@@ -36,6 +45,10 @@ public class HomePage  {
 
     public void clickOnYoutubeButton() {
         youtubeButton.click();
+    }
+
+    public void clickOnGetSourceButton() {
+        sourceCodeButton.click();
     }
 
 

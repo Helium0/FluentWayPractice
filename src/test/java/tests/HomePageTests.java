@@ -17,6 +17,14 @@ public class HomePageTests extends BasePage {
     private final By ACCEPT_YOUTUBE_COOKIES = By.xpath("//span[contains(text(),'Accept all')]");
     private final By YOUTUBE_LOGO = By.xpath("//yt-icon[@id='logo-icon']");
 
+    @Test
+    public void checkVisitNowFunctionality() {
+        driver = DriverManagement.getDriver();
+        homePage = new HomePage(driver);
+        homePage.clickOnVisitNowButton();
+
+        Assert.assertEquals(driver.findElement(NEXT_PAGE_INFORMARION).getText(), "This site can’t be reached");
+    }
 
     @Test
     public void checkLearnMoreButtonFunctionality() {
@@ -41,6 +49,15 @@ public class HomePageTests extends BasePage {
         WaitsUtils.waitForWebelement(driver, driver.findElement(YOUTUBE_LOGO));
 
         Assert.assertEquals(driver.getTitle(),"Execute Automation - YouTube");
+    }
+
+    @Test
+    public void checkSourceCodeButton() {
+        driver = DriverManagement.getDriver();
+        homePage = new HomePage(driver);
+        homePage.clickOnGetSourceButton();
+
+        Assert.assertEquals(driver.getTitle(), "executeautomation (ExecuteAutomation) · GitHub");
     }
 
 }

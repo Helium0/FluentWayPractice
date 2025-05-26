@@ -1,0 +1,21 @@
+2025-05-26 00:00:12,785 [main] INFO : [TestNG] Running:
+  D:\SomeWebApp\SeleniumFluentPractice\testng.xml
+
+2025-05-26 00:00:15,963 [main] INFO : *** START ***
+2025-05-26 00:00:21,022 [main] INFO : *** TEST name: checkCoursesButtonsFunctionality PASSED
+2025-05-26 00:00:21,456 [main] INFO : *** START ***
+2025-05-26 00:00:21,773 [main] INFO : *** TEST name: checkLearnMoreButtonFunctionality PASSED
+2025-05-26 00:00:22,115 [main] INFO : *** START ***
+2025-05-26 00:00:23,240 [main] INFO : *** TEST name: checkSourceCodeButton PASSED
+2025-05-26 00:00:23,566 [main] INFO : *** START ***
+2025-05-26 00:00:23,748 [main] INFO : *** TEST name: checkVisitNowFunctionality PASSED
+2025-05-26 00:00:24,074 [main] INFO : *** START ***
+2025-05-26 00:00:24,630 [main] INFO : *** TEST name: userCanClickOnRememberCheckbox PASSED ***
+2025-05-26 00:00:24,922 [main] INFO : *** START ***
+2025-05-26 00:00:25,759 [main] INFO : *** TEST name: userCantLoginWithIncorrectCredentials PASSED ***
+2025-05-26 00:00:26,038 [main] INFO : *** START ***
+2025-05-26 00:00:26,503 [main] INFO : *** TEST name: userCantLoginWithoutCredentials PASSED ***
+2025-05-26 00:00:26,798 [main] INFO : *** START ***
+2025-05-26 00:00:27,315 [main] INFO : *** TEST name: userCantLoginWithoutPassword PASSED ***
+2025-05-26 00:00:27,599 [main] INFO : *** START ***
+2025-05-26 00:00:28,085 [main] INFO : *** TEST name: userCantLoginWithoutUserName PASSED ***
